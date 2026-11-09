@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light dark">
+
+  <title>Projects</title>
+  <meta name="description" content="Projects curriculum by hocbigg.">
+  <meta name="author" content="hocbigg">
+
+  <link rel="canonical" href="https://hocbigg.github.io/public-history/projects.html">
+  <meta property="og:title" content="Projects">
+  <meta property="og:description" content="Projects curriculum by hocbigg.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://hocbigg.github.io/public-history/projects.html">
+  <link rel="icon" href="https://hocbigg.github.io/images/favicon.ico">
+
+  <style>
+:root {
+  color-scheme: light dark;
+
+  --bg: #ffffff;
+  --fg: #1a1a1a;
+  --muted: #595959;
+  --border: #e0e0e0;
+  --th-bg: #f6f8fa;
+  --code-bg: #f4f4f4;
+  --link: #0969da;
+  --focus-ring: #0969da;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #0d1117;
+    --fg: #e6edf3;
+    --muted: #8b949e;
+    --border: #30363d;
+    --th-bg: #161b22;
+    --code-bg: #161b22;
+    --link: #58a6ff;
+    --focus-ring: #58a6ff;
+  }
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 1.5rem auto;
+  max-width: 60rem;
+  padding: 0 1rem 3.5rem;
+  background-color: var(--bg);
+  color: var(--fg);
+  font: 1.15rem/1.65 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  
+  /* Cú pháp hiện đại thay thế cho word-wrap */
+  overflow-wrap: break-word;
+}
+
+.site-header {
+  margin-bottom: 2.5rem;
+  border-bottom: 1px solid var(--border);
+  padding-bottom: 1rem;
+}
+
+nav ul {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  gap: 0.5rem 1.25rem;
+  font-size: 1rem;
+}
+
+nav a {
+  text-decoration: none;
+  color: var(--muted);
+  font-weight: 500;
+}
+
+nav a:hover, 
+nav a:focus-visible {
+  color: var(--fg);
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+
+nav .nav-brand {
+  color: var(--fg);
+  font-weight: 700;
+  margin-right: 0.5rem;
+}
+
+.skip-link {
+  position: absolute;
+  transform: translateY(-150%);
+  left: 1rem;
+  background: var(--fg);
+  color: var(--bg);
+  padding: 0.5rem 1rem;
+  z-index: 100;
+  text-decoration: none;
+  font-weight: 600;
+  border-radius: 4px;
+  transition: transform 0.2s ease;
+}
+
+.skip-link:focus {
+  transform: translateY(1rem);
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+  border: 0;
+}
+
+:focus-visible {
+  outline: 2px solid var(--focus-ring);
+  outline-offset: 3px;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  line-height: 1.3;
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+  color: var(--fg);
+  font-weight: 600;
+}
+
+h1 {
+  font-size: 2.5rem;
+  margin-top: 0;
+}
+
+h2 {
+  font-size: 2rem;
+  padding-bottom: 0.3em;
+  border-bottom: 1px solid var(--border);
+}
+
+h3 {
+  font-size: 1.5rem;
+}
+
+h4 {
+  font-size: 1.25rem;
+}
+
+h5 {
+  font-size: 1.15rem;
+}
+
+h6 {
+  font-size: 1rem;
+  color: var(--muted);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+p, ul, ol, blockquote, table {
+  margin-top: 0;
+  margin-bottom: 1.25rem;
+}
+
+li > ul,
+li > ol {
+  margin-top: 0.25rem;
+  margin-bottom: 0;
+}
+
+li {
+  margin-bottom: 0.25rem;
+}
+
+a {
+  color: var(--link);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+a:hover {
+  text-decoration-thickness: 2px;
+}
+
+a:has(img) {
+  text-decoration: none;
+}
+
+.page-header {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.page-header .page-subtitle {
+  color: var(--muted);
+  font-size: 1.15rem;
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+.page-header img {
+  margin: 0 auto 1rem;
+  display: block;
+}
+
+code {
+  font-family: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, monospace;
+  font-size: 0.875em;
+  background-color: var(--code-bg);
+  padding: 0.2em 0.4em;
+  border-radius: 4px;
+  border: 1px solid var(--border);
+}
+
+pre {
+  background-color: var(--code-bg);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: 1rem;
+  overflow-x: auto;
+  tab-size: 2;
+}
+
+pre code {
+  background: transparent;
+  padding: 0;
+  border: none;
+  font-size: 0.9rem;
+  border-radius: 0;
+}
+
+.table-wrapper {
+  overflow-x: auto;
+  margin-bottom: 1.5rem;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+}
+
+th, td {
+  border: 1px solid var(--border);
+  padding: 0.6rem 0.75rem;
+  vertical-align: top;
+}
+
+th {
+  background-color: var(--th-bg);
+  font-weight: 600;
+}
+
+blockquote {
+  margin-inline: 0;
+  border-left: 4px solid var(--border);
+  padding-left: 1rem;
+  color: var(--muted);
+  font-style: italic;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation: none !important;
+    transition: none !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+@media print {
+  body {
+    max-width: none;
+    color: #000;
+    background: #fff;
+  }
+  .skip-link, nav {
+    display: none;
+  }
+}
+  </style>
+</head>
+<body>
+
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+
+  <header class="site-header">
+    <nav aria-label="Main Navigation">
+    <ul>
+      <li><a href="https://hocbigg.github.io/" class="nav-brand">Hocbigg</a></li>
+      <li><a href="/public-history/">Public History</a></li>
+      <li><a href="/public-history/advanced_topics.html">Advanced Topics</a></li>
+      <li><a href="/public-history/projects.html">Projects</a></li>
+      <li><a href="https://github.com/hocbigg/public-history" target="_blank" rel="noopener noreferrer">GitHub<span class="sr-only"> (opens in new tab)</span></a></li>
+    </ul>
+    </nav>
+  </header>
+
+  <main id="main-content">
+    <article>
+
+<h1 id="projects">Projects</h1>
+<blockquote>
+<p>"What I cannot create, I do not understand." — Richard Feynman</p>
+</blockquote>
+<ul>
+<li><a href="#curate-your-own-digital-exhibits">Digital Exhibits</a></li>
+<li><a href="#build-your-own-interactive-timelines">Interactive Timelines</a></li>
+<li><a href="#build-your-own-narrative-story-maps">Narrative Story Maps</a></li>
+<li><a href="#conduct-your-own-oral-history-interviews">Oral History Interviews</a></li>
+<li><a href="#design-your-own-historical-walking-tours">Historical Walking Tours</a></li>
+<li><a href="#produce-your-own-history-podcast-episodes">History Podcast Episodes</a></li>
+<li><a href="#launch-your-own-crowdsourced-transcription-projects">Crowdsourced Transcription Projects</a></li>
+<li><a href="#compile-your-own-archival-finding-aids">Archival Finding Aids</a></li>
+<li><a href="#prepare-your-own-historic-place-nominations">Historic Place Nominations</a></li>
+<li><a href="#author-your-own-historical-marker-applications">Historical Marker Applications</a></li>
+<li><a href="#write-your-own-history-op-eds">History Op-Eds</a></li>
+<li><a href="#curate-your-own-physical-museum-exhibits">Physical Museum Exhibits</a></li>
+<li><a href="#write-your-own-public-humanities-grant-proposals">Public Humanities Grant Proposals</a></li>
+</ul>
+<h2 id="curate-your-own-digital-exhibits">Curate your own digital exhibits</h2>
+<ul>
+<li><a href="https://programminghistorian.org/en/lessons/creating-an-omeka-exhibit" target="_blank" rel="noopener noreferrer">Creating an Omeka Exhibit (The Programming Historian)</a> - A peer-reviewed lesson detailing how to structure narratives, select metadata themes, and arrange digital items into guided online exhibits.</li>
+<li><a href="https://programminghistorian.org/en/lessons/building-a-digital-exhibition-with-collectionbuilder-and-the-internet-archive" target="_blank" rel="noopener noreferrer">Building a Digital Exhibition with CollectionBuilder and the Internet Archive (The Programming Historian)</a> - A step-by-step walkthrough for building a static digital exhibition site using GitHub Pages, Markdown, and hosted digital collections.</li>
+<li><a href="https://collectionbuilder.github.io/cb-docs/docs/walkthroughs/gh-walkthrough/" target="_blank" rel="noopener noreferrer">CollectionBuilder-GH Walkthrough (CollectionBuilder)</a> - A hands-on guide for generating a free, searchable digital collection and exhibition website using Google Sheets and GitHub.</li>
+</ul>
+<h2 id="build-your-own-interactive-timelines">Build your own interactive timelines</h2>
+<ul>
+<li><a href="https://timeline.knightlab.com/" target="_blank" rel="noopener noreferrer">TimelineJS User Guide and Spreadsheet Template (Northwestern University Knight Lab)</a> - The official authoring walkthrough and Google Sheets template for building interactive, media-rich web timelines.</li>
+<li><a href="https://timeline.knightlab.com/docs/using-spreadsheets.html" target="_blank" rel="noopener noreferrer">Making a Timeline from a Google Spreadsheet (Knight Lab Documentation)</a> - Technical guide covering date formatting conventions (including BCE dates), media embedding syntax, and background customization.</li>
+</ul>
+<h2 id="build-your-own-narrative-story-maps">Build your own narrative story maps</h2>
+<ul>
+<li><a href="https://storymap.knightlab.com/" target="_blank" rel="noopener noreferrer">StoryMapJS Authoring Tool and Walkthrough (Northwestern University Knight Lab)</a> - The official platform guide for linking historical events to geographic coordinates and multimedia slides.</li>
+<li><a href="https://programminghistorian.org/en/lessons/georeferenced-maps-storymap-js" target="_blank" rel="noopener noreferrer">Displaying a Georeferenced Map in Knight Lab's StoryMapJS (The Programming Historian)</a> - A step-by-step tutorial on taking historic map rasters from Map Warper and displaying them as custom baselayers in StoryMapJS.</li>
+</ul>
+<h2 id="conduct-your-own-oral-history-interviews">Conduct your own oral history interviews</h2>
+<ul>
+<li><a href="https://sohp.org/resources-2/our-resources/" target="_blank" rel="noopener noreferrer">A Practical Guide to Oral History (Southern Oral History Program)</a> - A complete field manual covering interview preparation, question drafting, ethical consent forms, and remote recording setups.</li>
+<li><a href="https://siarchives.si.edu/history/oral-history/how-to-do-oral-history" target="_blank" rel="noopener noreferrer">How to Do Oral History (Smithsonian Institution Archives)</a> - An institutional guide covering the entire workflow from pre-interview biographical research to sound recording and indexing.</li>
+<li><a href="https://oralhistory.org/best-practices/" target="_blank" rel="noopener noreferrer">Principles and Best Practices for Oral History (Oral History Association)</a> - The professional association's official ethical benchmarks and methodological standards for interviewers and narrators.</li>
+</ul>
+<h2 id="design-your-own-historical-walking-tours">Design your own historical walking tours</h2>
+<ul>
+<li><a href="https://activehistory.ca/2013/10/stepping-into-the-past-with-historical-walking-tours/" target="_blank" rel="noopener noreferrer">Stepping into the Past with Historical Walking Tours (Active History)</a> - A practitioner's step-by-step walkthrough covering route design, stop pacing, archival research integration, and public delivery.</li>
+<li><a href="https://theclio.com/about" target="_blank" rel="noopener noreferrer">How to Create a Walking Tour or Heritage Trail in Clio (Clio)</a> - The official instructional guide for connecting geolocated historic landmarks into an interactive public walking or driving tour.</li>
+</ul>
+<h2 id="produce-your-own-history-podcast-episodes">Produce your own history podcast episodes</h2>
+<ul>
+<li><a href="https://www.historicacanada.ca/education-guides/how-to-make-an-oral-history-podcast" target="_blank" rel="noopener noreferrer">How to Make an Oral History Podcast (Historica Canada)</a> - A structured educational guide detailing how to transform recorded interviews into scripted narrative audio episodes with narration and archival audio.</li>
+<li><a href="https://transom.org/" target="_blank" rel="noopener noreferrer">The Audio Project Checklist (Transom)</a> - Professional guidance on microphone technique, scripting for the ear, rough-cut assembly, and narrative audio editing workflows; search "The Audio Project Checklist Transom" to access the guide directly.</li>
+</ul>
+<h2 id="launch-your-own-crowdsourced-transcription-projects">Launch your own crowdsourced transcription projects</h2>
+<ul>
+<li><a href="https://help.zooniverse.org/getting-started/" target="_blank" rel="noopener noreferrer">How to Create a Project with our Project Builder (Zooniverse Help Center)</a> - A complete technical walkthrough covering project configuration, workflow creation, subject upload, and volunteer task design.</li>
+<li><a href="https://help.zooniverse.org/getting-started/transcription/" target="_blank" rel="noopener noreferrer">Lifecycle of a Crowdsourced Transcription Project (Zooniverse Help Center)</a> - Specialized guidance on formatting handwritten documents, designing transcription task interfaces, and validating public contributions.</li>
+</ul>
+<h2 id="compile-your-own-archival-finding-aids">Compile your own archival finding aids</h2>
+<ul>
+<li><a href="https://www2.archivists.org/standards/DACS" target="_blank" rel="noopener noreferrer">Describing Archives: A Content Standard (Society of American Archivists)</a> - The official, open-access national standard defining the data elements and rules for constructing collection-level and item-level finding aids.</li>
+<li><a href="https://scholarworks.umb.edu/uasc_manual/3/" target="_blank" rel="noopener noreferrer">Processing Manual for Archival and Manuscript Collections (UMass Boston Special Collections)</a> - An open, practical repository manual providing step-by-step processing workflows, series arrangement guidance, and an archival finding aid template.</li>
+</ul>
+<h2 id="prepare-your-own-historic-place-nominations">Prepare your own historic place nominations</h2>
+<ul>
+<li><a href="https://www.nps.gov/subjects/nationalregister/upload/NRB16A-Complete.pdf" target="_blank" rel="noopener noreferrer">How to Complete the National Register Registration Form (National Register Bulletin 16A / National Park Service)</a> - The definitive federal technical manual detailing how to research historic context, delineate property boundaries, establish physical integrity, and complete NPS Form 10-900.</li>
+<li><a href="https://www.nps.gov/subjects/nationalregister/upload/NRB15_508.pdf" target="_blank" rel="noopener noreferrer">How to Apply the National Register Criteria for Evaluation (National Register Bulletin 15 / National Park Service)</a> - The companion federal guide for evaluating property significance across events, persons, architecture, and archaeological potential.</li>
+</ul>
+<h2 id="author-your-own-historical-marker-applications">Author your own historical marker applications</h2>
+<ul>
+<li><a href="https://georgiahistory.com/education-outreach/historical-marker-program/create-your-own-historical-marker/" target="_blank" rel="noopener noreferrer">Create Your Own Georgia Historical Marker Guide and Documentation Worksheet (Georgia Historical Society)</a> - A guided research methodology and documentation template for writing concise, fact-checked, 130-word public roadside marker inscriptions.</li>
+<li><a href="https://www.thc.texas.gov/preserve/projects-and-programs/state-historical-markers/apply-historical-marker" target="_blank" rel="noopener noreferrer">Apply for a Historical Marker (Texas Historical Commission)</a> - Official state guidelines and application packet outlining requirements for historical narrative essays, archival source citations, and site boundary verification.</li>
+</ul>
+<h2 id="write-your-own-history-op-eds">Write your own history op-eds</h2>
+<ul>
+<li><a href="https://www.theopedproject.org/resources" target="_blank" rel="noopener noreferrer">Op-Ed Writing: The Basics (The OpEd Project)</a> - The premier open resource for structuring opinion pieces, identifying news hooks and ledes, marshaling historical evidence, and pitching to editors.</li>
+<li><a href="https://www.historians.org/research-and-publications/perspectives-on-history/january-2025/on-the-power-of-op-eds" target="_blank" rel="noopener noreferrer">On the Power of Op-Eds (American Historical Association)</a> - An essay and practitioner guide on how professional historians translate archival findings and historiographical arguments into high-impact public essays.</li>
+</ul>
+<h2 id="curate-your-own-physical-museum-exhibits">Curate your own physical museum exhibits</h2>
+<ul>
+<li><a href="https://exhibits.si.edu/wp-content/uploads/2018/04/Guide-to-Exhibit-Development.pdf" target="_blank" rel="noopener noreferrer">A Guide to Exhibit Development (Smithsonian Exhibits)</a> - The Smithsonian's internal manual detailing the exhibition lifecycle: developing the interpretive hierarchy, writing 3-tier object labels, designing visitor flow, and managing team milestones.</li>
+<li><a href="https://www.thc.texas.gov/public/upload/publications/2015%20LR%20Museum%20Services%20Exhibit%20Development%20Workbook%20with%20Introduction.pdf" target="_blank" rel="noopener noreferrer">Exhibit Design and Development Workbook (Texas Historical Commission)</a> - A 53-page workbook for small museums and historical societies covering theme formulation, storyline development, visual selection, and physical fabrication on modest budgets.</li>
+</ul>
+<h2 id="write-your-own-public-humanities-grant-proposals">Write your own public humanities grant proposals</h2>
+<ul>
+<li><a href="https://www.neh.gov/grants/public/public-humanities-projects" target="_blank" rel="noopener noreferrer">Public Humanities Projects Notice of Funding Opportunity and Application Instructions (National Endowment for the Humanities)</a> - The official grant guidelines and narrative criteria for securing planning and implementation funding for historic places, exhibits, and public programs.</li>
+<li><a href="https://www.neh.gov/humanities/2008/julyaugust/feature/how-get-grant-neh" target="_blank" rel="noopener noreferrer">How to Get a Grant from NEH (National Endowment for the Humanities)</a> - Agency-published insider advice detailing how to articulate project significance, define humanities themes, structure project work plans, and avoid common review pitfalls.</li>
+</ul>
+    </article>
+  </main>
+
+</body>
+</html>

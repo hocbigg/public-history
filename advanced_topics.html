@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light dark">
+
+  <title>Public History — Advanced Topics</title>
+  <meta name="description" content="Public History — Advanced Topics curriculum by hocbigg.">
+  <meta name="author" content="hocbigg">
+
+  <link rel="canonical" href="https://hocbigg.github.io/public-history/advanced_topics.html">
+  <meta property="og:title" content="Public History — Advanced Topics">
+  <meta property="og:description" content="Public History — Advanced Topics curriculum by hocbigg.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://hocbigg.github.io/public-history/advanced_topics.html">
+  <link rel="icon" href="https://hocbigg.github.io/images/favicon.ico">
+
+  <style>
+:root {
+  color-scheme: light dark;
+
+  --bg: #ffffff;
+  --fg: #1a1a1a;
+  --muted: #595959;
+  --border: #e0e0e0;
+  --th-bg: #f6f8fa;
+  --code-bg: #f4f4f4;
+  --link: #0969da;
+  --focus-ring: #0969da;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #0d1117;
+    --fg: #e6edf3;
+    --muted: #8b949e;
+    --border: #30363d;
+    --th-bg: #161b22;
+    --code-bg: #161b22;
+    --link: #58a6ff;
+    --focus-ring: #58a6ff;
+  }
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 1.5rem auto;
+  max-width: 60rem;
+  padding: 0 1rem 3.5rem;
+  background-color: var(--bg);
+  color: var(--fg);
+  font: 1.15rem/1.65 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  
+  /* Cú pháp hiện đại thay thế cho word-wrap */
+  overflow-wrap: break-word;
+}
+
+.site-header {
+  margin-bottom: 2.5rem;
+  border-bottom: 1px solid var(--border);
+  padding-bottom: 1rem;
+}
+
+nav ul {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  gap: 0.5rem 1.25rem;
+  font-size: 1rem;
+}
+
+nav a {
+  text-decoration: none;
+  color: var(--muted);
+  font-weight: 500;
+}
+
+nav a:hover, 
+nav a:focus-visible {
+  color: var(--fg);
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+
+nav .nav-brand {
+  color: var(--fg);
+  font-weight: 700;
+  margin-right: 0.5rem;
+}
+
+.skip-link {
+  position: absolute;
+  transform: translateY(-150%);
+  left: 1rem;
+  background: var(--fg);
+  color: var(--bg);
+  padding: 0.5rem 1rem;
+  z-index: 100;
+  text-decoration: none;
+  font-weight: 600;
+  border-radius: 4px;
+  transition: transform 0.2s ease;
+}
+
+.skip-link:focus {
+  transform: translateY(1rem);
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+  border: 0;
+}
+
+:focus-visible {
+  outline: 2px solid var(--focus-ring);
+  outline-offset: 3px;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  line-height: 1.3;
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+  color: var(--fg);
+  font-weight: 600;
+}
+
+h1 {
+  font-size: 2.5rem;
+  margin-top: 0;
+}
+
+h2 {
+  font-size: 2rem;
+  padding-bottom: 0.3em;
+  border-bottom: 1px solid var(--border);
+}
+
+h3 {
+  font-size: 1.5rem;
+}
+
+h4 {
+  font-size: 1.25rem;
+}
+
+h5 {
+  font-size: 1.15rem;
+}
+
+h6 {
+  font-size: 1rem;
+  color: var(--muted);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+p, ul, ol, blockquote, table {
+  margin-top: 0;
+  margin-bottom: 1.25rem;
+}
+
+li > ul,
+li > ol {
+  margin-top: 0.25rem;
+  margin-bottom: 0;
+}
+
+li {
+  margin-bottom: 0.25rem;
+}
+
+a {
+  color: var(--link);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+a:hover {
+  text-decoration-thickness: 2px;
+}
+
+a:has(img) {
+  text-decoration: none;
+}
+
+.page-header {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.page-header .page-subtitle {
+  color: var(--muted);
+  font-size: 1.15rem;
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+.page-header img {
+  margin: 0 auto 1rem;
+  display: block;
+}
+
+code {
+  font-family: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, monospace;
+  font-size: 0.875em;
+  background-color: var(--code-bg);
+  padding: 0.2em 0.4em;
+  border-radius: 4px;
+  border: 1px solid var(--border);
+}
+
+pre {
+  background-color: var(--code-bg);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: 1rem;
+  overflow-x: auto;
+  tab-size: 2;
+}
+
+pre code {
+  background: transparent;
+  padding: 0;
+  border: none;
+  font-size: 0.9rem;
+  border-radius: 0;
+}
+
+.table-wrapper {
+  overflow-x: auto;
+  margin-bottom: 1.5rem;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+}
+
+th, td {
+  border: 1px solid var(--border);
+  padding: 0.6rem 0.75rem;
+  vertical-align: top;
+}
+
+th {
+  background-color: var(--th-bg);
+  font-weight: 600;
+}
+
+blockquote {
+  margin-inline: 0;
+  border-left: 4px solid var(--border);
+  padding-left: 1rem;
+  color: var(--muted);
+  font-style: italic;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation: none !important;
+    transition: none !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+@media print {
+  body {
+    max-width: none;
+    color: #000;
+    background: #fff;
+  }
+  .skip-link, nav {
+    display: none;
+  }
+}
+  </style>
+</head>
+<body>
+
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+
+  <header class="site-header">
+    <nav aria-label="Main Navigation">
+    <ul>
+      <li><a href="https://hocbigg.github.io/" class="nav-brand">Hocbigg</a></li>
+      <li><a href="/public-history/">Public History</a></li>
+      <li><a href="/public-history/advanced_topics.html">Advanced Topics</a></li>
+      <li><a href="/public-history/projects.html">Projects</a></li>
+      <li><a href="https://github.com/hocbigg/public-history" target="_blank" rel="noopener noreferrer">GitHub<span class="sr-only"> (opens in new tab)</span></a></li>
+    </ul>
+    </nav>
+  </header>
+
+  <main id="main-content">
+    <article>
+
+<h1 id="public-history-advanced-topics">Public History — Advanced Topics</h1>
+<h2 id="track-index">Track Index</h2>
+<p>Choose one or two specialization tracks aligned with your professional and research interests; advanced learners are not expected to complete every track.</p>
+<ul>
+<li><strong>Digital Public History &amp; Spatial Humanities</strong> — Advanced methodologies for spatial analysis, historical GIS, web exhibit curation, born-digital preservation, and crowdsourced public participation.</li>
+<li><strong>Museum Curation and Exhibition Practice</strong> — Advanced operational frameworks for exhibition storytelling, preventive conservation, audience research, and Indigenous decolonizing methodologies.</li>
+<li><strong>Difficult Heritage, Transitional Justice &amp; Memory Politics</strong> — Conceptual and practical frameworks for interpreting atrocity, resolving civic conflicts over public monuments, and curating memorial sites.</li>
+<li><strong>Historic Preservation and Cultural Resource Management</strong> — Legal compliance, federal regulatory review (Section 106), building rehabilitation standards, and architectural documentation methodologies.</li>
+<li><strong>Community Engagement and Shared Authority</strong> — Methodologies for collaborative fieldwork, participatory action research, community co-curation, and digital oral history curation.</li>
+</ul>
+<h2 id="digital-public-history-spatial-humanities">Digital Public History &amp; Spatial Humanities</h2>
+<p>Advanced methods for building digital history projects, including spatial analysis and GIS mapping, web exhibit curation, born-digital archiving, and public crowdsourcing.</p>
+<p>Spatial History and Historical GIS: <a href="https://books.google.com/books?isbn=9780253222176" target="_blank" rel="noopener noreferrer">The Spatial Humanities: GIS and the Future of Humanities Scholarship (David J. Bodenhamer, John Corrigan, and Trevor M. Harris, eds. / Indiana University Press)</a> - A seminal volume exploring how spatial thinking, deep mapping, and geographic information systems reshape historical inquiry and public interpretation.</p>
+<p>Spatial History and Historical GIS: <a href="https://programminghistorian.org/en/lessons/geocoding-qgis" target="_blank" rel="noopener noreferrer">Geocoding Historical Data Using QGIS (Justin Colson / The Programming Historian)</a> - A practical, step-by-step open tutorial on translating historical tabular records into spatial coordinates and analyzing them in open-source GIS software.</p>
+<p>Digital Exhibit Curation: <a href="https://programminghistorian.org/en/lessons/creating-an-omeka-exhibit" target="_blank" rel="noopener noreferrer">Creating an Omeka Exhibit (Miriam Posner and Megan R. Brett / The Programming Historian)</a> - A peer-reviewed, open tutorial guiding practitioners through building structured, narrative-driven online exhibitions using the premier open-source public history platform.</p>
+<p>Born-Digital Preservation and Web Archiving: <a href="https://www.webjunction.org/news/webjunction/web-archiving-course.html" target="_blank" rel="noopener noreferrer">Web Archiving for Public Libraries (WebJunction / Internet Archive)</a> - A free, self-paced training course developed with the Internet Archive covering workflows, selection policies, and preservation of local web content.</p>
+<p>Crowdsourcing and Participatory Digital Projects: <a href="https://britishlibrary.pubpub.org/the-collective-wisdom-handbook" target="_blank" rel="noopener noreferrer">The Collective Wisdom Handbook: Perspectives on Crowdsourcing in Cultural Heritage (Mia Ridge et al. / British Library PubPub)</a> - An authoritative open-access field guide offering practical methodologies, volunteer motivation frameworks, and case studies for designing ethical, community-powered crowdsourcing initiatives.</p>
+<h2 id="museum-curation-and-exhibition-practice">Museum Curation and Exhibition Practice</h2>
+<p>Specialized methodologies for developing exhibition narratives, managing and preserving collections, centering Indigenous perspectives, and studying visitor interactions.</p>
+<p>Exhibition Concept and Narrative Development: <a href="https://books.google.com/books?isbn=9781538160466" target="_blank" rel="noopener noreferrer">Exhibit Labels: An Interpretive Approach (Beverly Serrell and Katherine Whitney / Rowman &amp; Littlefield)</a> - The definitive professional manual for formulating the "Big Idea," structuring exhibition hierarchies, and writing clear, visitor-centered labels.</p>
+<p>Preventive Conservation and Collections Management: <a href="https://www.nps.gov/museum/publications/handbook.html" target="_blank" rel="noopener noreferrer">Museum Handbook, Part I: Museum Collections (U.S. National Park Service)</a> - The premier open-access technical manual outlining standard operating procedures for preventive conservation, storage environments, integrated pest management, and collections planning.</p>
+<p>Decolonizing Museology and Repatriation: <a href="https://books.google.com/books?isbn=9780807837153" target="_blank" rel="noopener noreferrer">Decolonizing Museums: Representing Native America in National and Tribal Museums (Amy Lonetree / University of North Carolina Press)</a> - The seminal monograph analyzing how tribal and national museums navigate Indigenous collaboration, tribal sovereignty, and the repatriation of cultural belongings.</p>
+<p>Decolonizing Museology and Repatriation: <a href="https://www.youtube.com/watch?v=Eb4EQpaMMGM" target="_blank" rel="noopener noreferrer">Amy Lonetree Keynote: Indigenizing Museums and the Move Toward Decolonization (Thinking Through the Museum / YouTube)</a> - A recorded keynote lecture detailing the practical evolution of collaborative curation and structural tribal consultation in museum practice.</p>
+<p>Visitor Studies and Audience Research: <a href="https://books.google.com/books?isbn=9781611320459" target="_blank" rel="noopener noreferrer">The Museum Experience Revisited (John H. Falk and Lynn D. Dierking / Routledge)</a> - The landmark research monograph introducing the Contextual Model of Learning, examining how visitors construct meaning across personal, sociocultural, and physical dimensions.</p>
+<h2 id="difficult-heritage-transitional-justice-memory-politics">Difficult Heritage, Transitional Justice &amp; Memory Politics</h2>
+<p>Theoretical and practical approaches to interpreting painful, contested, and traumatic pasts through memorial museums, public monuments, and post-conflict truth processes.</p>
+<p>Difficult Heritage and Perpetrator Commemoration: <a href="https://books.google.com/books?isbn=9780415419925" target="_blank" rel="noopener noreferrer">Difficult Heritage: Negotiating the Nazi Past in Nuremberg and Beyond (Sharon Macdonald / Routledge)</a> - The foundational monograph analyzing how modern societies negotiate, curate, and acknowledge architectural and physical sites of atrocity and perpetration.</p>
+<p>Contested Monuments and Public Memorialization: <a href="https://euroclio.eu/resource/monumental-challenges-toolkit/" target="_blank" rel="noopener noreferrer">Monument(al) Challenges Toolkit (EuroClio &amp; Contested Histories Initiative)</a> - A free, practical toolkit and curriculum designed to analyze, teach, and resolve civic conflicts over contested statues, street names, and commemorative sites.</p>
+<p>Memorial Museum Creation and Politics of Display: <a href="https://archive.org/details/preservingmemory0000line_g1w2" target="_blank" rel="noopener noreferrer">Preserving Memory: The Struggle to Create America's Holocaust Museum (Edward T. Linenthal / Internet Archive)</a> - The definitive case study detailing the complex ideological, diplomatic, and architectural negotiations involved in establishing the United States Holocaust Memorial Museum; available to borrow freely on Internet Archive.</p>
+<p>Post-Conflict Memorialization and Transitional Justice: <a href="https://www.sitesofconscience.org/wp-content/uploads/2017/07/Memorialization-Toolkit-English.pdf" target="_blank" rel="noopener noreferrer">From Memory to Action: A Toolkit for Memorialization in Post-Conflict Societies (Ereshnee Naidu / International Coalition of Sites of Conscience)</a> - A practical, field-tested guide for memory practitioners facilitating dialogue, memorialization, and truth-telling in societies recovering from mass atrocities.</p>
+<h2 id="historic-preservation-and-cultural-resource-management">Historic Preservation and Cultural Resource Management</h2>
+<p>The legal frameworks, regulatory reviews, technical conservation standards, and documentation methods governing the protection and management of historic environments.</p>
+<p>Federal Regulatory Compliance and Section 106: <a href="https://www.achp.gov/training/elearning" target="_blank" rel="noopener noreferrer">e-Learning Courses (Advisory Council on Historic Preservation)</a> - Free official, on-demand modules covering the Section 106 review process, federal agency undertakings, adverse effect resolution, and tribal consultation.</p>
+<p>Rehabilitation Standards and Treatment of Historic Properties: <a href="https://www.nps.gov/tps/standards/rehabilitation.htm" target="_blank" rel="noopener noreferrer">The Secretary of the Interior's Standards for Rehabilitation (National Park Service Technical Preservation Services)</a> - The definitive federal guidelines and technical benchmarks governing repairs, alterations, and additions to historic buildings while preserving character-defining features.</p>
+<p>Cultural Resource Management Practice and Law: <a href="https://books.google.com/books?isbn=9780759121751" target="_blank" rel="noopener noreferrer">Cultural Resource Laws and Practice (Thomas F. King / Rowman &amp; Littlefield)</a> - The standard industry reference for identifying, evaluating, and mitigating impacts on archaeological and historical resources under federal, state, and tribal laws.</p>
+<p>Architectural Documentation and Field Survey: <a href="https://www.nps.gov/hdp/standards/standards.htm" target="_blank" rel="noopener noreferrer">Standards and Guidelines for Architectural and Engineering Documentation (Heritage Documentation Programs / U.S. National Park Service)</a> - The official technical criteria defining the production of measured drawings, large-format photographs, and written historical reports for the HABS, HAER, and HALS national collections.</p>
+<h2 id="community-engagement-and-shared-authority">Community Engagement and Shared Authority</h2>
+<p>Collaborative methodologies for sharing interpretive authority, empowering local community stakeholders, and capturing vernacular histories through digital and participatory workflows.</p>
+<p>Shared Authority and Public History Theory: <a href="https://archive.org/details/sharedauthority0000fris" target="_blank" rel="noopener noreferrer">A Shared Authority: Essays on the Craft and Meaning of Oral and Public History (Michael Frisch / Internet Archive)</a> - The foundational theoretical text establishing public history as an egalitarian, collaborative process between historical professionals and communities; available to borrow freely on Internet Archive.</p>
+<p>Collaborative Curation and User Participation: <a href="https://books.google.com/books?isbn=9780983480303" target="_blank" rel="noopener noreferrer">Letting Go? Sharing Historical Authority in a User-Generated World (Bill Adair, Benjamin Filene, and Laura Koloski, eds. / Pew Center for Arts &amp; Heritage)</a> - Case studies and critical reflections by leading practitioners examining the challenges, ethical tensions, and practical strategies of relinquishing institutional control to public contributors.</p>
+<p>Community-Based Participatory Action Research (CBPAR): <a href="https://www.labor.ucla.edu/wp-content/uploads/2015/03/A-Short-Guide-to-Community-Based-Participatory-Action-Research.pdf" target="_blank" rel="noopener noreferrer">A Short Guide to Community Based Participatory Action Research (Janice C. Burns, Deanna Y. Cooke, and Christine Schweidler / UCLA Labor Center)</a> - A practical field manual detailing participatory research design, asset mapping, and methods for engaging community partners as co-researchers rather than subjects.</p>
+<p>Digital Oral History Workflow and Archiving: <a href="https://ohda.matrix.msu.edu/" target="_blank" rel="noopener noreferrer">Oral History in the Digital Age (Doug Boyd et al. / MATRIX: Michigan State University)</a> - A comprehensive open-access resource portal featuring curated video interviews and micro-essays covering digital recording technologies, indexing with OHMS, preservation, and online dissemination.</p>
+    </article>
+  </main>
+
+</body>
+</html>
